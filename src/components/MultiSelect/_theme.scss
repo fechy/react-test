@@ -1,0 +1,14 @@
+.multiselect_div {
+  height: 35px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.option {
+  cursor: pointer;
+}
+
+.active {
+  background:#8c8c8c;
+  color:#000000;
+}
