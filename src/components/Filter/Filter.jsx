@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { AppBar, Button, Dialog, Chip } from 'react-toolbox';
 
+import style from './_theme.scss';
+
 const logisticsProviders = [
     "Drop Shipment",
     "Local Warehouse",
@@ -40,9 +42,7 @@ class FilterContent extends Component {
                 {
                     this.state.active.map((lp) => {
                         return (
-                            <Chip key={lp} deletable onDeleteClick={this.handleRemove.bind(this, lp)}>
-                                {lp}
-                            </Chip>
+                            <Chip key={lp} deletable onDeleteClick={this.handleRemove.bind(this, lp)} theme={style}>{lp}</Chip>
                         )
                     })
                 }
@@ -57,17 +57,12 @@ class FilterContent extends Component {
                     logisticsProviders.map((lp) => {
                         if (this.state.active.indexOf(lp) > -1) {
                             return (
-                                <Chip key={lp} onDeleteClick={this.handleAdd.bind(this, lp)}>
-                                    {lp}
-                                </Chip>
+                                <Chip key={lp} onDeleteClick={this.handleAdd.bind(this, lp)}>{lp}</Chip>
                             );
                         }
 
                         return (
-                            <Chip key={lp} deletable onDeleteClick={this.handleAdd.bind(this, lp)} deleteIcon="folder">
-                                <i className="material-icons">accessibility</i>
-                                {lp}
-                            </Chip>
+                            <Chip key={lp} deletable onDeleteClick={this.handleAdd.bind(this, lp)} deleteIcon="folder">{lp}</Chip>
                         )
                     })
                 }
